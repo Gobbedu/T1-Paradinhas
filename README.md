@@ -3,6 +3,7 @@
 ## Login
 Quem conseguir rodar o `git clone git@github.com:Gobbedu/T1-Paradinhas.git` usando SSH,
 coloca um X dentro dos [ ] no seu nome e roda os comando a baixo. 
+(vamo ter q fazer isso direto pra ir salvando oq cada um fez)
 
 - `git commit -am "eu fiz login"`  salva as mudancas que vc fez
 
