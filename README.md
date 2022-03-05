@@ -10,11 +10,12 @@ coloca um X dentro dos [ ] no seu nome e roda os comando a baixo.
 
 - `git push` empurra oq foi mudado pro github
 
-- [ ] Dante
-- [ ] Ackermann
-- [ ] Anderson
-- [ ] Vitoria
-- [X] Gobbo 
+
+[ ] Dante
+[ ] Ackermann
+[ ] Anderson
+[ ] Vitoria
+[X] Gobbo 
 
 
 ### Objetivos:
