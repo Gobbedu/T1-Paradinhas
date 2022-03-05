@@ -1,16 +1,16 @@
 # T1-Paradinhas
 ## Trabalho 1 de Paradigmas de programação 
 
-###Objetivos:
+### Objetivos:
 Desenvolver um software, usando o paradigma de programação orientada a objetos, seu principais con-
 ceitos e uma linguagem de programação orientada a objetos, no caso, Java.
-###Descrição:
+### Descrição:
 O software a ser desenvolvido terá como descrição um dos temas colocados a seguir. Cada equipe deverá 
 escolher um dos temas e implementá-lo. No caso de dúvidas, procurar o professor da disciplina para
 resolvê-lo.
-###Temas:
+### Temas:
 Cada equipe composta por 3 ou 4 alunos deverá implementar um entre os seguintes trabalhos:
-#Sistema Pedido de quebra de barreira:
+# Sistema Pedido de quebra de barreira:
 O sistema tem por objetivo auxiliar o aluno no seu pedido de quebra de barreira, verificar a situação do
 aluno e gerar um arquivo texto com o pedido de quebra e seus dados.
 O sistema deve permitir que o aluno obtenha as suas informações do histórico importando um arquivo
