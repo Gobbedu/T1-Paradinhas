@@ -10,16 +10,16 @@ escolher um dos temas e implementá-lo. No caso de dúvidas, procurar o professo
 resolvê-lo.
 
 ## To Do
-- [] Aluno obtem as suas informações do histórico importando um arquivo .CSV
-- [] Importar dados sobre as disciplinas (disponibilidade no semestre e na grade curricular), em arquivo .CSV
-- [] O sistema deverá colocar estes dados em uma lista com as matérias cursadas e uma lista das matérias do curso
-- [] Apresentar uma tabela com as matérias cursadas por período e asmatérias que faltam cursar para a barreira
-- [] Apresentar dados de aprovação do último período, como porcentagem de aprovação e quantas matérias reprovou por falta
-- [] Mostra ao aluno o conjunto de disciplinas ofertadas neste semestre que não foram cursadas neste semestre por ordem de período
-- [] Aluno seleciona um conjunto de disciplinas que ele deseja cursar, com informação sobre a prioridade delas
-- [] O sistema devera calcular o número de disciplinas sugerido pelas regras aprovadas em colegiado e mostrar este resultado
-- [] Salvar os dados do pedido em um arquivo de forma a permitir que o aluno os edite posteriormente
-- [] Ao selecionar enviar, gerar um arquivo de texto contendo os dados do pedido
+-[] Aluno obtem as suas informações do histórico importando um arquivo .CSV
+-[] Importar dados sobre as disciplinas (disponibilidade no semestre e na grade curricular), em arquivo .CSV
+-[] O sistema deverá colocar estes dados em uma lista com as matérias cursadas e uma lista das matérias do curso
+-[] Apresentar uma tabela com as matérias cursadas por período e asmatérias que faltam cursar para a barreira
+-[] Apresentar dados de aprovação do último período, como porcentagem de aprovação e quantas matérias reprovou por falta
+-[] Mostra ao aluno o conjunto de disciplinas ofertadas neste semestre que não foram cursadas neste semestre por ordem de período
+-[] Aluno seleciona um conjunto de disciplinas que ele deseja cursar, com informação sobre a prioridade delas
+-[] O sistema devera calcular o número de disciplinas sugerido pelas regras aprovadas em colegiado e mostrar este resultado
+-[] Salvar os dados do pedido em um arquivo de forma a permitir que o aluno os edite posteriormente
+-[] Ao selecionar enviar, gerar um arquivo de texto contendo os dados do pedido
 
 # Sistema Pedido de quebra de barreira:
 O sistema tem por objetivo auxiliar o aluno no seu pedido de quebra de barreira, verificar a situação do
