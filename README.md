@@ -2,10 +2,14 @@
 
 ## Login
 Quem conseguir rodar o `git clone git@github.com:Gobbedu/T1-Paradinhas.git` usando SSH,
-coloca um X dentro dos [ ] no seu nome e rodar:
+coloca um X dentro dos [ ] no seu nome e roda
+
 `git commit -am "eu fiz login"`  salva as mudancas que vc fez
+
 `git pull` puxa oq tem no github (resolve os conflito no vscode)
+
 `git push` empurra oq foi mudado pro github
+
 - [ ] Dante
 - [ ] Ackermann
 - [ ] Anderson
