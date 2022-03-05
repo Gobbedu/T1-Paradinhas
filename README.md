@@ -5,18 +5,18 @@ Quem conseguir rodar o `git clone git@github.com:Gobbedu/T1-Paradinhas.git` usan
 coloca um X dentro dos [ ] no seu nome e roda os comando a baixo. 
 (vamo ter q fazer isso direto pra ir salvando oq cada um fez)
 
-- `git commit -am "eu fiz login"`  salva as mudancas que vc fez
+-   `git commit -am "eu fiz login"`  salva as mudancas que vc fez
 
-- `git pull` puxa oq tem no github (resolve os conflito no vscode)
+-   `git pull` puxa oq tem no github (resolve os conflito no vscode)
 
-- `git push` empurra oq foi mudado pro github
+-   `git push` empurra oq foi mudado pro github
 
 
-[ ] Dante
-[ ] Ackermann
-[ ] Anderson
-[ ] Vitoria
-[X] Gobbo 
+- [ ] Dante
+- [ ] Ackermann
+- [ ] Anderson
+- [ ] Vitoria
+- [X] Gobbo 
 
 
 ### Objetivos:
