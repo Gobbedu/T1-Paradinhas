@@ -1,5 +1,18 @@
 ## Trabalho 1 de Paradigmas de programação 
 
+## Login
+Quem conseguir rodar o `git clone git@github.com:Gobbedu/T1-Paradinhas.git` usando SSH,
+coloca um X dentro dos [ ] no seu nome e rodar:
+`git commit -am "eu fiz login"`  salva as mudancas que vc fez
+`git pull` puxa oq tem no github (resolve os conflito no vscode)
+`git push` empurra oq foi mudado pro github
+- [ ] Dante
+- [ ] Ackermann
+- [ ] Anderson
+- [ ] Vitoria
+- [X] Gobbo 
+
+
 ### Objetivos:
 Desenvolver um software, usando o paradigma de programação orientada a objetos, seu principais con-
 ceitos e uma linguagem de programação orientada a objetos, no caso, Java.
