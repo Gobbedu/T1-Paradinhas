@@ -14,7 +14,7 @@ coloca um X dentro dos [ ] no seu nome e testa os comando a baixo.
 
 - [ ] Dante
 - [ ] Ackermann
-- [ ] Anderson
+- [X] Anderson
 - [ ] Vitoria
 - [X] Gobbo 
 
