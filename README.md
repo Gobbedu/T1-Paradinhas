@@ -2,7 +2,7 @@
 
 ## Login
 Rode `git clone git@github.com:Gobbedu/T1-Paradinhas.git` com verificação ssh,
-coloca um X dentro dos [ ] no seu nome e testa os comando a baixo. 
+coloca um X dentro dos [ ] no seu nome em `README.md` e testa os comando a baixo. 
 (vamo ter q fazer isso direto pra ir salvando oq cada um fez)
 
 -   `git commit -am "eu fiz login"`  salva as mudancas que vc fez
