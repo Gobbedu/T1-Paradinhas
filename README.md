@@ -13,7 +13,7 @@ coloca um X dentro dos [ ] no seu nome em `README.md` e testa os comando a baixo
 
 
 - [ ] Dante
-- [ ] Ackermann
+- [x] Ackermann
 - [X] Anderson
 - [ ] Vitoria
 - [X] Gobbo 
