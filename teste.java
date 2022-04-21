@@ -1,34 +1,14 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 import java.util.Vector;
-import java.io.File;
-import java.io.FileNotFoundException;
 
+//não estou conseguindo testar kkkkkk
 public class teste {
-    public static void leArquivo() throws FileNotFoundException{
-        String nome;
-        String GRR;
-        Scanner arquivo = new Scanner(new File("TAP_historico.csv"));
-        arquivo.useDelimiter(";");
-        arquivo.nextLine();
-        arquivo.nextLine();
-        GRR=arquivo.next();
-        nome=arquivo.next();
-        System.out.print("Nome: "+nome+" GRR: "+GRR);
-        arquivo.close();
-
-    }
-    public static void main(String[] args){
-        try{
-            leArquivo();
+    public static void main (String args[]){
+        Arquivadora lista = new Arquivadora();
+        Vector<Aluno> teste = lista.getLista_de_alunos();
+        Aluno n = teste.get(1);
+        int id = n.getHistorico().size();
+        for(int i = 0; i < id; i++){
+            System.out.println(n);
         }
-        catch(IOException e){System.out.println("DEU MERDA");}
     }
 }
