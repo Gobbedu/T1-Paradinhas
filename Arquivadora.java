@@ -7,11 +7,8 @@ public class Arquivadora {
   private Vector<Aluno> lista_de_alunos =  new Vector<Aluno> ();
 
   public Arquivadora() {
-  }
-
-  public Arquivadora(Vector<Disciplina> lista_de_disciplinas2019, Vector<Disciplina> lista_de_disciplinas2011) {
     this.lista_de_disciplinas2019 = Leitura_Disciplinas.leDisciplinas("TAP_Disciplinas_2019.csv");
-    this.lista_de_disciplinas2011 = Leitura_Disciplinas.leDisciplinas("TAP_Disciplinas_2011.csv");
+    //this.lista_de_disciplinas2011 = Leitura_Disciplinas.leDisciplinas("TAP_Disciplinas_2011.csv");
     this.lista_de_alunos = Leitura_Disciplinas.leAluno("TAP_historico.csv");
   }
 

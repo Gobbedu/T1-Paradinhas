@@ -8,11 +8,11 @@ public class Leitura_Disciplinas{
   public static Vector<Disciplina> leDisciplinas(String arquivo){
     Vector<Disciplina> lista_de_Disciplinas = new Vector<Disciplina>();
     File arquivo_Disciplinas = new File(arquivo);
-
     try{
       Scanner usuario = new Scanner (arquivo_Disciplinas);
       usuario.nextLine();
       usuario.nextLine();
+
       usuario.useDelimiter(";");
 
       while(usuario.hasNext()){
@@ -28,6 +28,7 @@ public class Leitura_Disciplinas{
         materia.setTIPO_DISCIPLINA(usuario.next());
         materia.setCH_TOTAL(usuario.next());
         materia.setDESCR_SITUACAO(usuario.next());
+        usuario.nextLine();
         lista_de_Disciplinas.add(materia);
       }
       usuario.close();
