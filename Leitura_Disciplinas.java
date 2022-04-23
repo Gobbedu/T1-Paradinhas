@@ -41,52 +41,46 @@ public class Leitura_Disciplinas{
     }
   }
 
-  public static Vector<Aluno> leAluno(String arquivo){
-    Vector<Aluno> lista_de_alunos = new Vector<Aluno>();
+  public static Aluno leAluno(String arquivo){
+    Aluno id = new Aluno();
     Vector<Disciplinas_Cursadas> lista_Disc_Cursadas = new Vector<Disciplinas_Cursadas>();
     File arquivo_Historico = new File(arquivo);
 
     try{
-      Scanner usuario = new Scanner (arquivo_Historico);
+      Scanner usuario = new Scanner(arquivo_Historico);
       usuario.nextLine();
       usuario.nextLine();
       usuario.useDelimiter(";");
 
-      while(usuario.hasNext()){
-        Aluno id = new Aluno();
+      while (usuario.hasNext()){ 
         id.setGRR(usuario.next());
         id.setNOME(usuario.next());
-        while (usuario.hasNext()){                                            //ver outro metodo de parada
-          Disciplinas_Cursadas materia = new Disciplinas_Cursadas();
-          materia.setCOD_CURSO(usuario.next());
-          materia.setNOME_CURSO(usuario.next());
-          materia.setNUM_VERSAO(usuario.next());
-          materia.setANO(usuario.next());
-          materia.setMEDIA_FINAL(usuario.next());
-          materia.setSITUACAO_ITEM(usuario.next());
-          materia.setPERIODO(usuario.next());
-          materia.setSITUACAO(usuario.next());
-          materia.setCOD_ATIV_CURRIC(usuario.next());
-          materia.setNOME_ATIV_CURRIC(usuario.next());
-          materia.setCH_TOTAL(usuario.next());
-          materia.setDESCR_ESTRUTURA(usuario.next());
-          materia.setFREQUENCIA(usuario.next());
-          materia.setSIGLA(usuario.next());
-          lista_Disc_Cursadas.add(materia);
-          usuario.next();
-          usuario.next();
-          usuario.nextLine();
-        }
-        id.setHistorico(lista_Disc_Cursadas);
-        lista_de_alunos.add(id);
+        Disciplinas_Cursadas materia = new Disciplinas_Cursadas();
+        materia.setCOD_CURSO(usuario.next());
+        materia.setNOME_CURSO(usuario.next());
+        materia.setNUM_VERSAO(usuario.next());
+        materia.setANO(usuario.next());
+        materia.setMEDIA_FINAL(usuario.next());
+        materia.setSITUACAO_ITEM(usuario.next());
+        materia.setPERIODO(usuario.next());
+        materia.setSITUACAO(usuario.next());
+        materia.setCOD_ATIV_CURRIC(usuario.next());
+        materia.setNOME_ATIV_CURRIC(usuario.next());
+        materia.setCH_TOTAL(usuario.next());
+        materia.setDESCR_ESTRUTURA(usuario.next());
+        materia.setFREQUENCIA(usuario.next());
+        materia.setSIGLA(usuario.next());
+        lista_Disc_Cursadas.add(materia);
+        usuario.nextLine();
       }
+      id.setHistorico(lista_Disc_Cursadas);
       usuario.close();
-      return lista_de_alunos;
+      return id;
     }
     catch(IOException e){
       System.out.println("Erro ao ler o arquivo");
       e.printStackTrace();
-      return lista_de_alunos;
+      return id;
     }
   }
 
