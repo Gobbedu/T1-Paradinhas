@@ -84,4 +84,31 @@ public class Leitura_Disciplinas{
     }
   }
 
+  public static Vector<Disciplina> geraBarreira(Vector<Disciplina> Disciplinas_2019){
+    Vector<Disciplina> disciplinas_barreira = new Vector<Disciplina> ();
+    int n = Disciplinas_2019.size();
+    for (int i = 0; i < n; i++){
+      Disciplina candidato = new Disciplina();
+      candidato = Disciplinas_2019.get(i);
+      if((candidato.getPERIODO_IDEAL().equals("1"))||(candidato.getPERIODO_IDEAL().equals("2"))||(candidato.getPERIODO_IDEAL().equals("3"))){
+        disciplinas_barreira.add(candidato);
+      }
+    }
+    return disciplinas_barreira;
+  }
+
+  public static Vector<Disciplina> geraBarreira_Aluno(Vector <Disciplina> disciplinas_barreira, Vector <Disciplinas_Cursadas> historico){
+    Vector<Disciplina> barreira_aluno = new Vector<Disciplina> ();
+    int n = disciplinas_barreira.size();
+    for(int i = 0; i < n; i++){
+      int k = historico.size();
+      for(int j = 0; j < k; k++){
+        if((disciplinas_barreira.get(i).getCOD_CURSO().equals(historico.get(j).getCOD_CURSO()))){
+          disciplinas_barreira.add(disciplinas_barreira.get(i));
+          break;
+        }
+      }
+    }
+    return barreira_aluno;
+  }
 }

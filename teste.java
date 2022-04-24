@@ -1,10 +1,13 @@
+import java.util.Vector;
 
-
-//não estou conseguindo testar kkkkkk
 public class teste {
     public static void main (String args[]){
         Arquivadora lista = new Arquivadora();
-        Aluno teste = lista.getAluno();
-        System.out.println(teste);
+        Vector<Disciplina>  teste = new Vector<Disciplina>();
+        teste = lista.getAluno().getBarreira();
+        int n = teste.size();
+        for(int i = 0; i < n; i++){
+            System.out.println(teste.get(i));
+        }
     }
 }
