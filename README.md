@@ -28,10 +28,10 @@ escolher um dos temas e implementá-lo. No caso de dúvidas, procurar o professo
 resolvê-lo.
 
 ## To Do
-- [ ] Aluno obtem as suas informações do histórico importando um arquivo .CSV
-- [ ] Importar dados sobre as disciplinas (disponibilidade no semestre e na grade curricular), em arquivo .CSV
-- [ ] O sistema deverá colocar estes dados em uma lista com as matérias cursadas e uma lista das matérias do curso
-- [ ] Apresentar uma tabela com as matérias cursadas por período e asmatérias que faltam cursar para a barreira
+- [x] Aluno obtem as suas informações do histórico importando um arquivo .CSV
+- [x] Importar dados sobre as disciplinas (disponibilidade no semestre e na grade curricular), em arquivo .CSV
+- [x] O sistema deverá colocar estes dados em uma lista com as matérias cursadas e uma lista das matérias do curso
+- [ ] Apresentar uma tabela com as matérias cursadas por período e as matérias que faltam cursar para a barreira
 - [ ] Apresentar dados de aprovação do último período, como porcentagem de aprovação e quantas matérias reprovou por falta
 - [ ] Mostra ao aluno o conjunto de disciplinas ofertadas neste semestre que não foram cursadas neste semestre por ordem de período
 - [ ] Aluno seleciona um conjunto de disciplinas que ele deseja cursar, com informação sobre a prioridade delas
