@@ -9,9 +9,9 @@ public class Arquivadora {
 
   public Arquivadora() {
     this.lista_de_disciplinas2019 = Leitura_Disciplinas.leDisciplinas("TAP_Disciplinas_2019.csv");
-    //this.lista_de_disciplinas2011 = Leitura_Disciplinas.leDisciplinas("TAP_Disciplinas_2011.csv");
+    this.lista_de_disciplinas2011 = Leitura_Disciplinas.leDisciplinas("TAP_Disciplinas_2011.csv");
     this.aluno = Leitura_Disciplinas.leAluno("TAP_historico.csv");
-    this.disciplinas_barreira = Leitura_Disciplinas.geraBarreira(this.lista_de_disciplinas2019);
+    this.disciplinas_barreira = Leitura_Disciplinas.geraBarreira(this.lista_de_disciplinas2011);
     this.aluno.setBarreira(Leitura_Disciplinas.geraBarreira_Aluno(this.disciplinas_barreira, this.aluno.getHistorico()));
   }
 
@@ -30,4 +30,6 @@ public class Arquivadora {
   public Vector<Disciplina> getDisciplinas_Barreira(){
     return this.disciplinas_barreira;
   }
+
+  
 }

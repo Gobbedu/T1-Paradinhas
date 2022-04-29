@@ -7,7 +7,7 @@ public class Leitura_Disciplinas{
 
   public static Vector<Disciplina> leDisciplinas(String arquivo){
     Vector<Disciplina> lista_de_Disciplinas = new Vector<Disciplina>();
-    File arquivo_Disciplinas = new File(arquivo);
+    File arquivo_Disciplinas = new File("dados/"+arquivo);
     try{
       Scanner usuario = new Scanner (arquivo_Disciplinas);
       usuario.nextLine();
@@ -44,7 +44,7 @@ public class Leitura_Disciplinas{
   public static Aluno leAluno(String arquivo){
     Aluno id = new Aluno();
     Vector<Disciplinas_Cursadas> lista_Disc_Cursadas = new Vector<Disciplinas_Cursadas>();
-    File arquivo_Historico = new File(arquivo);
+    File arquivo_Historico = new File("dados/"+arquivo);
 
     try{
       Scanner usuario = new Scanner(arquivo_Historico);
@@ -100,14 +100,17 @@ public class Leitura_Disciplinas{
   public static Vector<Disciplina> geraBarreira_Aluno(Vector <Disciplina> disciplinas_barreira, Vector <Disciplinas_Cursadas> historico){
     Vector<Disciplina> barreira_aluno = new Vector<Disciplina> ();
     int n = disciplinas_barreira.size();
+    int cursou=0;
+    int k = historico.size();
     for(int i = 0; i < n; i++){
-      int k = historico.size();
-      for(int j = 0; j < k; k++){
-        if((disciplinas_barreira.get(i).getCOD_CURSO().equals(historico.get(j).getCOD_CURSO()))){
-          disciplinas_barreira.add(disciplinas_barreira.get(i));
-          break;
-        }
+      for(int j = 0; j < k; j++){
+        if((disciplinas_barreira.get(i).getCOD_DISCIPLINA().equals(historico.get(j).getCOD_ATIV_CURRIC())))
+          cursou=1;
       }
+      if(cursou==0)
+        barreira_aluno.add(disciplinas_barreira.get(i));
+      else
+        cursou=0;
     }
     return barreira_aluno;
   }
