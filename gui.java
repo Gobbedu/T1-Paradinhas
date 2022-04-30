@@ -1,12 +1,17 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.util.List;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 import java.util.*;
+import java.io.*;
 class gui {
     private static int numero;
     public static void janela(String grr)
     {
-        Arquivadora lista = new Arquivadora(grr);
+        Arquivadora lista = new Arquivadora();
         JFrame frame = new JFrame(grr);
         frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -18,7 +23,25 @@ class gui {
         
         frame.add(batata);
         frame.setVisible(true);
-        
+        List<String> columns = new ArrayList<String>();
+        List<String[]> values = new ArrayList<String[]>();
+
+        columns.add("col1");
+        //columns.add("col2");
+        //columns.add("col3");
+
+        for (int i = 0; i < 100; i++) {
+            values.add(new String[] {lista.getAluno().getNOME()});
+        }
+
+        TableModel tableModel = new DefaultTableModel(values.toArray(new Object[][] {}), columns.toArray());
+        JTable table = new JTable(tableModel);
+        table.setSize(5000, 1000);
+
+        JPanel panel2 = new JPanel();
+        panel2.add(table);
+        frame.getContentPane().add(BorderLayout.CENTER, panel2);
+        frame.setVisible(true);
         //frame.getContentPane().add(BorderLayout.CENTER, panel);
         /*JLabel label = new JLabel("batata");
         JTextField tf = new JTextField(8); // accepts upto 10 characters
@@ -49,53 +72,39 @@ class gui {
         File dir = new File("dados");
         String[] children = dir.list();
         
-        JFrame frame = new JFrame("Chat Frame");
+        JFrame frame = new JFrame("Quebra de Barreira");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        frame.setResizable(false);
+        frame.setSize(420,300);
         //Creating the panel at bottom and adding components
         JPanel panel = new JPanel(); // the panel is not visible in output
-        JLabel label = new JLabel("Enter Text" + vetor.get(0));
+        JLabel label = new JLabel("Digite o seu GRR");
         JTextField tf = new JTextField(8); // accepts upto 10 characters
-        JButton send = new JButton("Send");
-        JButton reset = new JButton("Reset");
+        JButton send = new JButton("Enviar");
         panel.add(label); // Components Added using Flow Layout
         panel.add(tf);
         panel.add(send);
-        panel.add(reset);
 
-        // Text Area at the Center
-        JTextArea ta = new JTextArea();
-
-        //Adding Components to the frame.
+        JLabel Mensagem  = new JLabel("<html>&emsp;Digite seu GRR para acessar o seu perfil no sistema e<br/>&emsp;&emsp;&emsp;construir seu pedido de quebra de barreira<html> ");
+       
+        frame.getContentPane().add(BorderLayout.CENTER, Mensagem);
         frame.getContentPane().add(BorderLayout.SOUTH, panel);
-        frame.getContentPane().add(BorderLayout.CENTER, ta);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        
+        
 
-        if (children == null) {
-            System.out.println("does not exist or is not a directory");
-        } 
-        else{
-            for (int i = 0; i < children.length; i++) {
-               if(children[i].equals(nome)) 
-                System.out.println("achou");
-            }
-        }
-
+        
         send.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String grr=tf.getText();
-                if (existe(grr+"_historico.csv"))
-                    return true;
-                else
-                    return false;
-                if(grr.equals("20206686"))
-                {
-                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-                    janela("GRR"+grr);
-                
+                for (int i = 0; i < children.length; i++) {
+                    if(children[i].equals(grr+"_historico.csv")) {
+                        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                        janela("GRR"+grr);
+                    }
                 }
-                else
-                    label.setText("senha errada");
+                label.setText("GRR não encontrado");
             }          
          });
     }
