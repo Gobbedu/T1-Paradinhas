@@ -6,17 +6,27 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import java.util.*;
 import java.io.*;
-
+import javax.swing.border.Border;
 class gui {
     public static void janela(String grr)
     {
-        Arquivadora lista = new Arquivadora();
-        JFrame frame = new JFrame(grr);
+        //Border borda = BorderFactory.createLineBorder(Color.BLUE, 5);
+        Arquivadora lista = Arquivadora.getUnica();
+        lista.getAluno().setNOME("sei la porra");
+        JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         frame.setSize(1920,1020);
-        String texto=lista.getAluno().getNOME();
-        
+    
+        String nomeAluno=lista.getAluno().getNOME();
+        JLabel nomeLabel= new JLabel("<html>"+nomeAluno+"<br/>GRR:&emsp;"+grr+"<html>");
+        frame.getContentPane().add(BorderLayout.NORTH, nomeLabel);
+
+       
+
+
+        frame.setVisible(true);
+
         
     
     
@@ -59,7 +69,7 @@ class gui {
                 for (int i = 0; i < children.length; i++) {
                     if(children[i].equals(grr+"_historico.csv")) {
                         frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-                        janela("GRR"+grr);
+                        janela(grr);
                     }
                 }
                 label.setText("GRR não encontrado");

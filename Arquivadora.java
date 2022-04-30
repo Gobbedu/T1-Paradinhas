@@ -6,10 +6,10 @@ public class Arquivadora {
   private static Arquivadora InstanciaSingleton;
   private Vector<Disciplina> lista_de_disciplinas2019 = new Vector<Disciplina> ();
   private Vector<Disciplina> lista_de_disciplinas2011 = new Vector<Disciplina> ();
-  private Aluno aluno =  new Aluno ();
   private Vector<Disciplina> disciplinas_barreira = new Vector<Disciplina> ();
+  private Aluno aluno =  new Aluno ();
 
-  public Arquivadora() {
+  private Arquivadora() {
     this.lista_de_disciplinas2019 = Leitura_Disciplinas.leDisciplinas("TAP_Disciplinas_2019.csv");
     this.lista_de_disciplinas2011 = Leitura_Disciplinas.leDisciplinas("TAP_Disciplinas_2011.csv");
     this.aluno = Leitura_Disciplinas.leAluno("TAP_historico.csv");
