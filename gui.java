@@ -4,11 +4,10 @@ import java.util.List;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-
 import java.util.*;
 import java.io.*;
+
 class gui {
-    private static int numero;
     public static void janela(String grr)
     {
         Arquivadora lista = new Arquivadora();
@@ -71,6 +70,7 @@ class gui {
 
     /*PRONTO(ACHO KKK)*/
     public static void principal(){
+        
         File dir = new File("dados");
         String[] children = dir.list();
         
@@ -79,7 +79,7 @@ class gui {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setResizable(false);
         frame.setSize(420,300);
-        frame.getContentPane().setBackground(Color.RED);
+
         /*Cria o painel de inserção do GRR */
         JPanel panel = new JPanel(); // the panel is not visible in output
         JLabel label = new JLabel("Digite o seu GRR");
@@ -88,13 +88,13 @@ class gui {
         panel.add(label); // Components Added using Flow Layout
         panel.add(tf);
         panel.add(send);
-
         JLabel Mensagem  = new JLabel("<html>&emsp;Digite seu GRR para acessar o seu perfil no sistema e<br/>&emsp;&emsp;&emsp;construir seu pedido de quebra de barreira<html> ");
 
         /*Add tudo ao frame */
         frame.getContentPane().add(BorderLayout.CENTER, Mensagem);
         frame.getContentPane().add(BorderLayout.SOUTH, panel);
         frame.setLocationRelativeTo(null);
+        frame.getRootPane().setDefaultButton(send);
         frame.setVisible(true);
         
         /*Receber o GRR do usuario */
@@ -112,7 +112,6 @@ class gui {
          });
     }
     public static void main(String args[]) {
-        numero=0;
         principal();         
     }
 }
