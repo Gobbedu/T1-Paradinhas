@@ -68,15 +68,19 @@ class gui {
          });*/
     }
 
+
+    /*PRONTO(ACHO KKK)*/
     public static void principal(){
         File dir = new File("dados");
         String[] children = dir.list();
         
+        /*Cria o frame e define propriedades */
         JFrame frame = new JFrame("Quebra de Barreira");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setResizable(false);
         frame.setSize(420,300);
-        //Creating the panel at bottom and adding components
+        frame.getContentPane().setBackground(Color.RED);
+        /*Cria o painel de inserção do GRR */
         JPanel panel = new JPanel(); // the panel is not visible in output
         JLabel label = new JLabel("Digite o seu GRR");
         JTextField tf = new JTextField(8); // accepts upto 10 characters
@@ -86,15 +90,14 @@ class gui {
         panel.add(send);
 
         JLabel Mensagem  = new JLabel("<html>&emsp;Digite seu GRR para acessar o seu perfil no sistema e<br/>&emsp;&emsp;&emsp;construir seu pedido de quebra de barreira<html> ");
-       
+
+        /*Add tudo ao frame */
         frame.getContentPane().add(BorderLayout.CENTER, Mensagem);
         frame.getContentPane().add(BorderLayout.SOUTH, panel);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         
-        
-
-        
+        /*Receber o GRR do usuario */
         send.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String grr=tf.getText();
@@ -111,6 +114,5 @@ class gui {
     public static void main(String args[]) {
         numero=0;
         principal();         
-        //janela("batata");
     }
 }
