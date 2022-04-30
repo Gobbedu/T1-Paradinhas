@@ -12,59 +12,14 @@ class gui {
     {
         Arquivadora lista = new Arquivadora();
         JFrame frame = new JFrame(grr);
-        frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         frame.setSize(1920,1020);
         String texto=lista.getAluno().getNOME();
-        JLabel batata = new JLabel(texto);
-        batata.setBounds(50,40,2000,10);
         
-        frame.add(batata);
-        frame.setVisible(true);
-        List<String> columns = new ArrayList<String>();
-        List<String[]> values = new ArrayList<String[]>();
-
-        columns.add("col1");
-        //columns.add("col2");
-        //columns.add("col3");
-
-        for (int i = 0; i < 100; i++) {
-            values.add(new String[] {lista.getAluno().getNOME()});
-        }
-
-        TableModel tableModel = new DefaultTableModel(values.toArray(new Object[][] {}), columns.toArray());
-        JTable table = new JTable(tableModel);
-        table.setSize(5000, 1000);
-
-        JPanel panel2 = new JPanel();
-        panel2.add(table);
-        frame.getContentPane().add(BorderLayout.CENTER, panel2);
-        frame.setVisible(true);
-        //frame.getContentPane().add(BorderLayout.CENTER, panel);
-        /*JLabel label = new JLabel("batata");
-        JTextField tf = new JTextField(8); // accepts upto 10 characters
-        JButton send = new JButton("Send");
-        JButton reset = new JButton("Reset");
-        panel.add(label); // Components Added using Flow Layout
-        panel.add(tf);
-        panel.add(send);
-        panel.add(reset);
-        JTextArea ta = new JTextArea();
-        ta.setSize(200,100);*/
-
-        //Adding Components to the frame.
-        /*frame.getContentPane().add(BorderLayout.CENTER, ta);
-        frame.getContentPane().add(BorderLayout.SOUTH, panel);*/
         
-
-
-        /*reset.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-                    principal();
-                }          
-         });*/
+    
+    
     }
 
 
