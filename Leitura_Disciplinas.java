@@ -103,10 +103,12 @@ public class Leitura_Disciplinas{
     int cursou=0;
     int k = historico.size();
     for(int i = 0; i < n; i++){
-      for(int j = 0; j < k; j++){
-        if((disciplinas_barreira.get(i).getCOD_DISCIPLINA().equals(historico.get(j).getCOD_ATIV_CURRIC())))
+      for(int j = 0; j < k; j++)
+        if(disciplinas_barreira.get(i).getCOD_DISCIPLINA().equals(historico.get(j).getCOD_ATIV_CURRIC())){
           cursou=1;
-      }
+          if((historico.get(j).getSITUACAO().equals("Reprovado por nota"))||(historico.get(j).getSITUACAO().equals("Reprovado por Frequencia")))
+            cursou = 0;
+        }
       if(cursou==0)
         barreira_aluno.add(disciplinas_barreira.get(i));
       else
