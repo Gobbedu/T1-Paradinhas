@@ -4,17 +4,16 @@ GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019
 GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2019;100;1;1o. Semestre;Aprovado;CMA111;CALCULO 1A;90;Obrigatorias;100;Aprovado;
 GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2019;75;1;1o. Semestre;Aprovado;CI1068;CIRCUITOS DIGITAIS;60;Obrigatorias;100;Aprovado;
 GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2019;80;1;1o. Semestre;Aprovado;CM304;COMPLEMENTOS DE MATEMATICA;60;Obrigatorias;100;Aprovado;
-GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2019;30;2;1o. Semestre;Reprovado por nota;CI1003;INTRODUCAO A Ciencia da Computacao;60;Obrigatorias;93;Aprovado;
-GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2019;50;1;2o. Semestre;Aprovado;CM303;INTRODUCAO A GEOMETRIA ANALATICA E ALGEBRA LINEAR;60;Obrigatorias;100;Aprovado;
-GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2019;85;1;2o. Semestre;Aprovado;CI1056;ALGORITMOS E ESTRUTURAS DE DADOS II;60;Obrigatorias;96;Aprovado;
-GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2019;72;1;2o. Semestre;Aprovado;CMA211;CALCULO 2A;90;Obrigatorias;75;Aprovado;
-GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2019;91;1;2o. Semestre;Aprovado;CI1001;PROGRAMACAO 1;60;Obrigatorias;100;Aprovado;
-GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2019;91;1;2o. Semestre;Aprovado;CI1210;PROJETOS DIGITAIS E MICROPROCESSADORES;60;Obrigatorias;100;Aprovado;
-GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2020;82;1;1o. Semestre;Aprovado;CI1057;ALGORITMOS E ESTRUTURAS DE DADOS III;60;Obrigatorias;93;Aprovado;
+GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2019;30;1;1o. Semestre;Reprovado por nota;CI1003;INTRODUCAO A Ciencia da Computacao;60;Obrigatorias;93;Aprovado;
+GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2019;50;2;2o. Semestre;Aprovado;CM303;INTRODUCAO A GEOMETRIA ANALATICA E ALGEBRA LINEAR;60;Obrigatorias;100;Aprovado;
+GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2019;85;2;2o. Semestre;Aprovado;CI1056;ALGORITMOS E ESTRUTURAS DE DADOS II;60;Obrigatorias;96;Aprovado;
+GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2019;72;2;2o. Semestre;Aprovado;CMA211;CALCULO 2A;90;Obrigatorias;75;Aprovado;
+GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2019;91;2;2o. Semestre;Aprovado;CI1001;PROGRAMACAO 1;60;Obrigatorias;100;Aprovado;
+GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2019;91;2;2o. Semestre;Aprovado;CI1210;PROJETOS DIGITAIS E MICROPROCESSADORES;60;Obrigatorias;100;Aprovado;
+GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2020;82;3;1o. Semestre;Aprovado;CI1057;ALGORITMOS E ESTRUTURAS DE DADOS III;60;Obrigatorias;93;Aprovado;
 GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2020;30;3;1o. Semestre;Reprovado por Frequencia;CI1237;MATEMATICA DISCRETA;60;Obrigatorias;40;Aprovado;
 GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2020;30;3;1o. Semestre;Aprovado;CE009;INTRODUCAO A ESTATISTICA;60;Obrigatorias;40;Aprovado;
-GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2019;91;1;1o. Semestre;Aprovado;CI1002;PROGRAMACAO 2;60;Obrigatorias;100;Aprovado;
-GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2020;28;2;1o. Semestre;Reprovado por nota;CI1212;ORGANIZACAO E ARQUIT DE COMPUTADORES;60;Obrigatorias;;90;Aprovado
-GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2020;99;1;1o. Semestre;Aprovado;CI064;SOFTWARE BASICO I;60;Obrigatorias;100;Aprovado;
+GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2019;91;3;1o. Semestre;Aprovado;CI1002;PROGRAMACAO 2;60;Obrigatorias;100;Aprovado;
+GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2020;28;3;1o. Semestre;Reprovado por nota;CI1212;ORGANIZACAO E ARQUIT DE COMPUTADORES;60;Obrigatorias;;90;Aprovado
 GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2020;-;-;2o. Semestre;Matricula;CI1237;MATEMATICA DISCRETA;60;Obrigatorias;-;Matricula;
 GRR41561234;LUKE SKYWALKER;21A;Curso de CIencia da Computacao - Bacharelado;2019;2020;-;-;2o. Semestre;Matricula;CI1212;ORGANIZACAO E ARQUIT DE COMPUTADORES;60;Obrigatorias;-;Matricula;
