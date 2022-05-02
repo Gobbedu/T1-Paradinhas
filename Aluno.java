@@ -4,18 +4,13 @@ import java.util.Vector;
 public class Aluno{
     private String  GRR;
     private String  NOME;
-    private Vector<Disciplinas_Cursadas> Historico = new Vector<Disciplinas_Cursadas> ();
-    private Vector<Disciplina> barreira = new Vector<Disciplina> ();
-
+    private Vector<Disciplinas_Cursadas> Historico;
+    private Vector<Disciplina> barreira;
+    private double porc_aprovacao;
+    private int reprov_falta;
+    private int reprov_nota;
 
     public Aluno() {
-    }
-
-    public Aluno(String GRR, String NOME, Vector<Disciplinas_Cursadas> Historico, Vector<Disciplina> barreira){
-        this.GRR = GRR;
-        this.NOME = NOME;
-        this.Historico = Historico;
-        this.barreira = barreira;
     }
 
     public String getGRR() {
@@ -50,12 +45,39 @@ public class Aluno{
         this.barreira = barreira;
     }
 
+    public double getPorc_aprovacao() {
+        return this.porc_aprovacao;
+    }
+
+    public void setPorc_aprovacao(double porc_aprovacao) {
+        this.porc_aprovacao = porc_aprovacao;
+    }
+
+    public int getReprov_falta() {
+        return this.reprov_falta;
+    }
+
+    public void setReprov_falta(int reprov_falta) {
+        this.reprov_falta = reprov_falta;
+    }
+
+    public int getReprov_nota() {
+        return this.reprov_nota;
+    }
+
+    public void setReprov_nota(int reprov_nota) {
+        this.reprov_nota = reprov_nota;
+    }
+
     public String toString() {
         return "{" +
             " GRR='" + getGRR() + "'" +
             ", NOME='" + getNOME() + "'" +
             ", Historico='" + getHistorico() + "'" +
             ", barreira='" + getBarreira() + "'" +
+            ", Porc_aprovacao='" + getPorc_aprovacao() + "'" +
+            ", Reprov_falta='" + getReprov_falta() + "'" +
+            ", Reprov_nota='" + getReprov_nota() + "'" +
             "}";
     }
 

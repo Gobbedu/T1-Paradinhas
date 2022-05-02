@@ -4,15 +4,16 @@ import java.util.Vector;
 public class Arquivadora {
   
   private static Arquivadora InstanciaSingleton;
-  private Vector<Disciplina> lista_de_disciplinas2019 = new Vector<Disciplina> ();
-  private Vector<Disciplina> disciplinas_barreira = new Vector<Disciplina> ();
-  private Aluno aluno =  new Aluno ();
+  private Vector<Disciplina> lista_de_disciplinas2019;
+  private Vector<Disciplina> disciplinas_barreira;
+  private Aluno aluno;
 
   private Arquivadora() {
     this.lista_de_disciplinas2019 = Leitura_Disciplinas.leDisciplinas("TAP_Disciplinas_2019.csv");
     this.aluno = Leitura_Disciplinas.leAluno("TAP_historico.csv");
     this.disciplinas_barreira = Leitura_Disciplinas.geraBarreira(this.lista_de_disciplinas2019);
     this.aluno.setBarreira(Leitura_Disciplinas.geraBarreira_Aluno(this.disciplinas_barreira, this.aluno.getHistorico()));
+    Leitura_Disciplinas.geraDados_semestre(this.aluno);
   }
 
   public static Arquivadora getUnica(){

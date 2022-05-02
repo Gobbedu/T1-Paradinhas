@@ -1,26 +1,11 @@
-import java.util.Vector;
+//import java.util.Vector;
 //import java.io.File;
 public class teste {
     public static void main (String args[]){
         Arquivadora lista = Arquivadora.getUnica();
-        Vector<Disciplina>  teste = new Vector<Disciplina>();
-        teste = lista.getAluno().getBarreira();
-        int n = teste.size();
-        for(int i=0;i<n;i++)
-        {
-            System.out.println(teste.get(i));
-        }
-        /*File dir = new File("dados");
-        String[] children = dir.list();
-        String nome= "TAP_historico.csv";
-        if (children == null) {
-            System.out.println("does not exist or is not a directory");
-        } 
-        else{
-            for (int i = 0; i < children.length; i++) {
-               if(children[i].equals(nome)) 
-                System.out.println("achou");
-            }
-        }*/
+        Aluno teste = lista.getAluno();
+        System.out.println("Porcentagem de aprovacao="+teste.getPorc_aprovacao());
+        System.out.println("Reprovacoes por falta="+teste.getReprov_falta());
+        System.out.println("Reprovacoes por nota="+teste.getReprov_nota());
     }
 }

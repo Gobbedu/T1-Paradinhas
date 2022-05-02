@@ -17,23 +17,6 @@ public class Disciplinas_Cursadas{
     public Disciplinas_Cursadas() {
     }
 
-    public Disciplinas_Cursadas(String COD_CURSO, String NOME_CURSO, String NUM_VERSAO, String ANO, String MEDIA_FINAL, String SITUACAO_ITEM, String PERIODO, String SITUACAO, String COD_ATIV_CURRIC, String NOME_ATIV_CURRIC, String CH_TOTAL, String DESCR_ESTRUTURA, String FREQUENCIA, String SIGLA) {
-        this.COD_CURSO = COD_CURSO;
-        this.NOME_CURSO = NOME_CURSO;
-        this.NUM_VERSAO = NUM_VERSAO;
-        this.ANO = ANO;
-        this.MEDIA_FINAL = MEDIA_FINAL;
-        this.SITUACAO_ITEM = SITUACAO_ITEM;
-        this.PERIODO = PERIODO;
-        this.SITUACAO = SITUACAO;
-        this.COD_ATIV_CURRIC = COD_ATIV_CURRIC;
-        this.NOME_ATIV_CURRIC = NOME_ATIV_CURRIC;
-        this.CH_TOTAL = CH_TOTAL;
-        this.DESCR_ESTRUTURA = DESCR_ESTRUTURA;
-        this.FREQUENCIA = FREQUENCIA;
-        this.SIGLA = SIGLA;
-    }
-
     public String getCOD_CURSO() {
         return this.COD_CURSO;
     }

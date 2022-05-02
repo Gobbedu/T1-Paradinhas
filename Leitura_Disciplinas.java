@@ -1,5 +1,8 @@
 import java.io.File;
 import java.util.Vector;
+
+import javax.lang.model.util.ElementScanner6;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -106,7 +109,7 @@ public class Leitura_Disciplinas{
       for(int j = 0; j < k; j++)
         if(disciplinas_barreira.get(i).getCOD_DISCIPLINA().equals(historico.get(j).getCOD_ATIV_CURRIC())){
           cursou=1;
-          if((historico.get(j).getSITUACAO().equals("Reprovado por nota"))||(historico.get(j).getSITUACAO().equals("Reprovado por Frequencia")))
+          if(!(historico.get(j).getSITUACAO().equals("Aprovado")))
             cursou = 0;
         }
       if(cursou==0)
@@ -115,5 +118,41 @@ public class Leitura_Disciplinas{
         cursou=0;
     }
     return barreira_aluno;
+  }
+
+  public static void geraDados_semestre(Aluno aluno){
+    int n = aluno.getHistorico().size();
+    int ano;
+    int ano_i;
+    String semestre_anterior;
+    int aprovacao = 0;
+    int total = 0;
+    int reprov_nota = 0;
+    int reprov_falta = 0;
+
+    ano = Integer.parseInt(aluno.getHistorico().get(n-1).getANO());
+    if(aluno.getHistorico().get(n-1).getPERIODO().equals("1o. Semestre")){
+      semestre_anterior = "2o. Semestre";
+      ano--;
+    }
+    else
+      semestre_anterior = "1o. Semestre";
+
+    for(int i = 0; i<n; i++){
+      ano_i = Integer.parseInt(aluno.getHistorico().get(i).getANO());
+      if((ano_i == ano)&&(aluno.getHistorico().get(i).getPERIODO().equals(semestre_anterior))){
+        total++;
+        if(aluno.getHistorico().get(i).getSITUACAO().equals("Aprovado"))
+          aprovacao++; 
+        if(aluno.getHistorico().get(i).getSITUACAO().equals("Reprovado por nota"))
+          reprov_nota++;
+        if(aluno.getHistorico().get(i).getSITUACAO().equals("Reprovado por Frequencia"))
+          reprov_falta++;
+      }
+    }
+
+    aluno.setPorc_aprovacao((aprovacao*100)/total);
+    aluno.setReprov_nota(reprov_nota);
+    aluno.setReprov_falta(reprov_falta);
   }
 }

@@ -15,20 +15,6 @@ public class Disciplina{
   public Disciplina() {
   }
 
-  public Disciplina(String COD_CURSO, String NUM_VERSAO, String DESCR_ESTRUTURA, String COD_DISCIPLINA, String NOME_UNIDADE, String NOME_DISCIPLINA, String PERIODO_IDEAL, String NUM_HORAS, String TIPO_DISCIPLINA, String CH_TOTAL, String DESCR_SITUACAO) {
-    this.COD_CURSO = COD_CURSO;
-    this.NUM_VERSAO = NUM_VERSAO;
-    this.DESCR_ESTRUTURA = DESCR_ESTRUTURA;
-    this.COD_DISCIPLINA = COD_DISCIPLINA;
-    this.NOME_UNIDADE = NOME_UNIDADE;
-    this.NOME_DISCIPLINA = NOME_DISCIPLINA;
-    this.PERIODO_IDEAL = PERIODO_IDEAL;
-    this.NUM_HORAS = NUM_HORAS;
-    this.TIPO_DISCIPLINA = TIPO_DISCIPLINA;
-    this.CH_TOTAL = CH_TOTAL;
-    this.DESCR_SITUACAO = DESCR_SITUACAO;
-  }
-
   public String getCOD_CURSO() {
     return this.COD_CURSO;
   }
