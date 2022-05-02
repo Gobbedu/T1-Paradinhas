@@ -44,7 +44,7 @@ class gui {
             for(int i=0;i<lista.getDisciplinas_pares().size();i++){
                 String materia=lista.getDisciplinas_pares().get(i).getNOME_DISCIPLINA();
                 String periodo=lista.getDisciplinas_pares().get(i).getPERIODO_IDEAL();
-                Object[] data={materia,periodo,false};
+                Object[] data={materia,periodo,Boolean.FALSE};
                 model.addRow(data);                    
             }
         }
@@ -52,7 +52,7 @@ class gui {
             for(int i=0;i<lista.getDisciplinas_impares().size();i++){
                 String materia=lista.getDisciplinas_impares().get(i).getNOME_DISCIPLINA();
                 String periodo=lista.getDisciplinas_impares().get(i).getPERIODO_IDEAL();
-                Object[] data={materia,periodo,false};
+                Object[] data={materia,periodo,Boolean.FALSE};
                 model.addRow(data);                    
             }
         }
@@ -82,7 +82,6 @@ class gui {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         frame.setSize(1920,1020);
-    
         /*CABEÇALHO BEGIN */
         String nomeAluno=lista.getAluno().getNOME();
         JLabel header= new JLabel("<html>"+nomeAluno+"<br/>GRR:&emsp;"+grr+"<html>");
@@ -113,8 +112,12 @@ class gui {
             DefaultTableModel modelOfertadas = new DefaultTableModel(ColunasOfertadas,0){
                 @Override
                 public boolean isCellEditable(int row, int column) {
-                //Torna a tabela nao editavel
-                return false;
+                    switch(column){
+                        case 2:
+                            return true;
+                        default:
+                            return false;    
+                    }
                 }
             };
             JTable tableOfertadas= new JTable(modelOfertadas){
@@ -183,8 +186,23 @@ class gui {
                 JLabel Percentuais = new JLabel("<html>Percentual de aprovacao no ultimo periodo:"+Aprovacao+ "<br/><br/>Reprovacoes por falta no ultimo periodo:"+Falta+"<html>");
                 panel2.add(scrollPaneBarreiras,BorderLayout.NORTH);
                 panel2.add(Percentuais,BorderLayout.CENTER);
-            panel.add(panel2,BorderLayout.WEST);
-            panel.setPreferredSize(new Dimension(450,300));
+            
+            int materias;
+                if(Aprovacao>66)
+                    materias=5;
+                else
+                {
+                    if(Aprovacao<50)
+                        materias=3;
+                    else
+                        materias=4;
+                }
+            JLabel avisos= new JLabel("<html>É obrigatoria a matrícula na maior quantidade possível de disciplinas dentro da barreira!<br/>Máximo de matérias com base no seu desempenho="+materias+"<html>");
+            JButton enviar=new JButton("Gerar pedido");
+            enviar.setSize(100,100);
+        panel.add(enviar,BorderLayout.EAST);
+        panel.add(avisos,BorderLayout.CENTER);
+        panel.add(panel2,BorderLayout.WEST);
         frame.getContentPane().add(BorderLayout.SOUTH,panel);
         /*TABELA DE BARREIRA END */
         
