@@ -8,8 +8,6 @@ public class Aluno{
     private Vector<Disciplina> barreira;
     private double porc_aprovacao;
     private int reprov_falta;
-    private int reprov_nota;
-
     public Aluno() {
     }
 
@@ -61,14 +59,7 @@ public class Aluno{
         this.reprov_falta = reprov_falta;
     }
 
-    public int getReprov_nota() {
-        return this.reprov_nota;
-    }
-
-    public void setReprov_nota(int reprov_nota) {
-        this.reprov_nota = reprov_nota;
-    }
-
+    
     public String toString() {
         return "{" +
             " GRR='" + getGRR() + "'" +
@@ -77,7 +68,6 @@ public class Aluno{
             ", barreira='" + getBarreira() + "'" +
             ", Porc_aprovacao='" + getPorc_aprovacao() + "'" +
             ", Reprov_falta='" + getReprov_falta() + "'" +
-            ", Reprov_nota='" + getReprov_nota() + "'" +
             "}";
     }
 

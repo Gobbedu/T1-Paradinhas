@@ -6,9 +6,10 @@ import javax.swing.table.*;
 import java.util.*;
 import java.io.*;
 import javax.swing.border.Border;
-import javax.swing.BoxLayout;
 class gui {
 
+    
+    
     public static void TamanhoColunasHistorico(TableColumnModel columnModel){
         columnModel.getColumn(0).setPreferredWidth(380);
         columnModel.getColumn(0).setMaxWidth(380);
@@ -29,6 +30,34 @@ class gui {
             model.addRow(data);                    
         }
     }
+    
+    public static void TamanhoColunasOfertadas(TableColumnModel columnModel){
+        columnModel.getColumn(0).setPreferredWidth(380);
+        columnModel.getColumn(0).setMaxWidth(380);
+        columnModel.getColumn(1).setPreferredWidth(60);
+        columnModel.getColumn(1).setMaxWidth(60);
+        columnModel.getColumn(2).setPreferredWidth(80);
+        columnModel.getColumn(2).setMaxWidth(80);
+    }
+    public static void TabelaOfertadas(Arquivadora lista,DefaultTableModel model,int periodo_atual){
+        if(periodo_atual==0){
+            for(int i=0;i<lista.getDisciplinas_pares().size();i++){
+                String materia=lista.getDisciplinas_pares().get(i).getNOME_DISCIPLINA();
+                String periodo=lista.getDisciplinas_pares().get(i).getPERIODO_IDEAL();
+                Object[] data={materia,periodo,false};
+                model.addRow(data);                    
+            }
+        }
+        else{
+            for(int i=0;i<lista.getDisciplinas_impares().size();i++){
+                String materia=lista.getDisciplinas_impares().get(i).getNOME_DISCIPLINA();
+                String periodo=lista.getDisciplinas_impares().get(i).getPERIODO_IDEAL();
+                Object[] data={materia,periodo,false};
+                model.addRow(data);                    
+            }
+        }
+    }
+
     public static void TamanhoColunasBarreira(TableColumnModel columnModel){
         columnModel.getColumn(0).setPreferredWidth(380);
         columnModel.getColumn(0).setMaxWidth(380);
@@ -40,42 +69,98 @@ class gui {
         for(int i=0;i<lista.getAluno().getBarreira().size();i++){
             String materiaBarreira=lista.getAluno().getBarreira().get(i).getNOME_DISCIPLINA();
             String periodoIdeal=lista.getAluno().getBarreira().get(i).getPERIODO_IDEAL();
-
             String[] dataBarreira={materiaBarreira,periodoIdeal};
             model.addRow(dataBarreira);                    
         }
     }
     
 
-    public static void janela(String grr)
+    public static void janela(String grr,int periodo)
     {
-        Arquivadora lista = Arquivadora.getUnica();
+        Arquivadora lista = Arquivadora.getUnica(grr);
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         frame.setSize(1920,1020);
     
+        /*CABEÇALHO BEGIN */
         String nomeAluno=lista.getAluno().getNOME();
         JLabel header= new JLabel("<html>"+nomeAluno+"<br/>GRR:&emsp;"+grr+"<html>");
         frame.getContentPane().add(BorderLayout.NORTH, header);
+        /*CABEÇALHO END*/
 
-        String[] ColunasHistorico = {"Materias cursadas","Periodo","Nota","Situação"};
-        DefaultTableModel modelHistorico = new DefaultTableModel(ColunasHistorico,0){
-            @Override
-            public boolean isCellEditable(int row, int column) {
-            //Torna a tabela nao editavel
-            return false;
-            }
-        };
-        JTable tableHistorico = new JTable(modelHistorico);
-        TableColumnModel columnModel = tableHistorico.getColumnModel();
-        TamanhoColunasHistorico(columnModel);
-        TabelaHistorico(lista, modelHistorico);
+        JPanel Tabelas= new JPanel(new BorderLayout());
+            /*TABELA DE HISTORICO BEGIN */
+            String[] ColunasHistorico = {"Materias cursadas","Periodo","Nota","Situação"};
+            DefaultTableModel modelHistorico = new DefaultTableModel(ColunasHistorico,0){
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                //Torna a tabela nao editavel
+                return false;
+                }
+            };
+            JTable tableHistorico = new JTable(modelHistorico);
+            TableColumnModel columnModelHistorico = tableHistorico.getColumnModel();
+            TamanhoColunasHistorico(columnModelHistorico);
+            TabelaHistorico(lista, modelHistorico);
+            
+            JScrollPane scrollPaneHistorico = new JScrollPane(tableHistorico,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+            Tabelas.add(scrollPaneHistorico,BorderLayout.CENTER);
+            /*TABELA DE HISTORICO END */
+
+            /*TABELA DE OFERTADAS BEGIN */
+            String[] ColunasOfertadas = {"Materias Ofertadas","Periodo","Requerir"};
+            DefaultTableModel modelOfertadas = new DefaultTableModel(ColunasOfertadas,0){
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                //Torna a tabela nao editavel
+                return false;
+                }
+            };
+            JTable tableOfertadas= new JTable(modelOfertadas){
+                @Override
+                public Class getColumnClass(int column){
+                    switch(column){
+                        case 0:
+                            return String.class;
+                        case 1:
+                            return String.class;
+                        case 2:
+                            return Boolean.class;
+                        default:
+                            return String.class;
+                    }
+                }
+            };
+            JButton requerimento= new JButton();
+            requerimento.addActionListener(new ActionListener(){
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+
+                    for (int i=0;i<tableOfertadas.getRowCount();i++){
+                        Boolean marcado=Boolean.valueOf(tableOfertadas.getValueAt(i,0).toString());
+                        String  col=tableOfertadas.getValueAt(i,1).toString();
+                        if(marcado){
+                            JOptionPane.showMessageDialog(null,col);
+                        }
+                    }
+                }
+            });
+            frame.getContentPane().add(requerimento);
+            TableColumnModel columnModelOfertadas = tableOfertadas.getColumnModel();
+            TamanhoColunasOfertadas(columnModelOfertadas);
+            TabelaOfertadas(lista, modelOfertadas,periodo);
+            
+            JScrollPane scrollPaneOfertadas = new JScrollPane(tableOfertadas,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+            Tabelas.add(scrollPaneOfertadas,BorderLayout.EAST);
+            /*TABELA DE OFERTADAS END */
+        frame.getContentPane().add(BorderLayout.CENTER,Tabelas);
         
-        JScrollPane scrollPane = new JScrollPane(tableHistorico,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        frame.getContentPane().add(BorderLayout.CENTER,scrollPane);
-        
-        //
+
+
+
+        /*TABELA DE BARREIRA BEGIN */
         String[] ColunasBarreira = {"Matérias a Cursar na Barreira","Periodo"};
         DefaultTableModel modelBarreira = new DefaultTableModel(ColunasBarreira,0){
             @Override
@@ -90,30 +175,25 @@ class gui {
             TamanhoColunasBarreira(columnModelBarreira);
             
         JPanel panel =new JPanel(new BorderLayout());
-            JScrollPane scrollPane2 = new JScrollPane(tableBarreira,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-            JPanel panel2 =new JPanel();
-                JLabel Aprovacao = new JLabel("<html>Percentual de aprovacao no ultimo periodo: <html>");
-                /*Funcao para calcular essa merda */
-                JLabel Falta = new JLabel("<html><br/>Reprovacoes por falta no ultimo periodo:<html>");
-                /*Funcao para calcular essa outra merda */
-                panel2.add(Aprovacao);
-                panel2.add(Falta);
-            panel.add(scrollPane2,BorderLayout.WEST);
-            panel.add(panel2,BorderLayout.CENTER);
-
+            JPanel panel2 =new JPanel(new BorderLayout());
+                JScrollPane scrollPaneBarreiras = new JScrollPane(tableBarreira,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+                scrollPaneBarreiras.setPreferredSize(new Dimension(450,200));
+                Double Aprovacao=lista.getAluno().getPorc_aprovacao();
+                int Falta=lista.getAluno().getReprov_falta();
+                JLabel Percentuais = new JLabel("<html>Percentual de aprovacao no ultimo periodo:"+Aprovacao+ "<br/><br/>Reprovacoes por falta no ultimo periodo:"+Falta+"<html>");
+                panel2.add(scrollPaneBarreiras,BorderLayout.NORTH);
+                panel2.add(Percentuais,BorderLayout.CENTER);
+            panel.add(panel2,BorderLayout.WEST);
+            panel.setPreferredSize(new Dimension(450,300));
         frame.getContentPane().add(BorderLayout.SOUTH,panel);
-
-
-        frame.setVisible(true);
-
+        /*TABELA DE BARREIRA END */
         
-    
-    
+        frame.setVisible(true);
     }
-
 
     /*PRONTO(ACHO KKK)*/
     public static void principal(){
+
         
         File dir = new File("dados");
         String[] children = dir.list();
@@ -148,7 +228,7 @@ class gui {
                 for (int i = 0; i < children.length; i++) {
                     if(children[i].equals(grr+"_historico.csv")) {
                         frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-                        janela(grr);
+                        janela(grr,0);
                     }
                 }
                 label.setText("GRR não encontrado");
@@ -157,6 +237,6 @@ class gui {
     }
     public static void main(String args[]) {
         //principal();         
-        janela("20206686");
+        janela("41561234",0);
     }
 }

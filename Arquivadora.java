@@ -5,20 +5,24 @@ public class Arquivadora {
   
   private static Arquivadora InstanciaSingleton;
   private Vector<Disciplina> lista_de_disciplinas2019;
+  private Vector<Disciplina> disciplinas_pares;
+  private Vector<Disciplina> disciplinas_impares;
   private Vector<Disciplina> disciplinas_barreira;
   private Aluno aluno;
 
-  private Arquivadora() {
+  private Arquivadora(String grr) {
     this.lista_de_disciplinas2019 = Leitura_Disciplinas.leDisciplinas("TAP_Disciplinas_2019.csv");
-    this.aluno = Leitura_Disciplinas.leAluno("TAP_historico.csv");
+    this.aluno = Leitura_Disciplinas.leAluno(grr+"_historico.csv");
     this.disciplinas_barreira = Leitura_Disciplinas.geraBarreira(this.lista_de_disciplinas2019);
+    this.disciplinas_pares = Leitura_Disciplinas.geraDisc_pares(this.lista_de_disciplinas2019);
+    this.disciplinas_impares = Leitura_Disciplinas.geraDisc_impares(this.lista_de_disciplinas2019);
     this.aluno.setBarreira(Leitura_Disciplinas.geraBarreira_Aluno(this.disciplinas_barreira, this.aluno.getHistorico()));
     Leitura_Disciplinas.geraDados_semestre(this.aluno);
   }
 
-  public static Arquivadora getUnica(){
+  public static Arquivadora getUnica(String grr){
     if(InstanciaSingleton==null){
-      InstanciaSingleton = new Arquivadora();
+      InstanciaSingleton = new Arquivadora(grr);
     }
     return InstanciaSingleton;      
   }
@@ -35,5 +39,12 @@ public class Arquivadora {
     return this.disciplinas_barreira;
   }
 
+  public Vector<Disciplina> getDisciplinas_pares(){
+    return this.disciplinas_pares;
+  }
+
+  public Vector<Disciplina> getDisciplinas_impares(){
+    return this.disciplinas_impares;
+  }
   
 }
