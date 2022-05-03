@@ -33,9 +33,9 @@ resolvê-lo.
 - [x] O sistema deverá colocar estes dados em uma lista com as matérias cursadas e uma lista das matérias do curso
 - [x] Apresentar uma tabela com as matérias cursadas por período e as matérias que faltam cursar para a barreira
 - [x] Apresentar dados de aprovação do último período, como porcentagem de aprovação e quantas matérias reprovou por falta
-- [ ] Mostra ao aluno o conjunto de disciplinas ofertadas neste semestre que não foram cursadas, por ordem de período
+- [x] Mostra ao aluno o conjunto de disciplinas ofertadas neste semestre que não foram cursadas, por ordem de período
 - [ ] Aluno seleciona um conjunto de disciplinas que ele deseja cursar, com informação sobre a prioridade delas
-- [ ] O sistema devera calcular o número de disciplinas sugerido pelas regras aprovadas em colegiado e mostrar este resultado
+- [x] O sistema devera calcular o número de disciplinas sugerido pelas regras aprovadas em colegiado e mostrar este resultado
 - [ ] Salvar os dados do pedido em um arquivo de forma a permitir que o aluno os edite posteriormente
 - [ ] Ao selecionar enviar, gerar um arquivo de texto contendo os dados do pedido
 

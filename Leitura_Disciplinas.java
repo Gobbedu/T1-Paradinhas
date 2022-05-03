@@ -149,7 +149,9 @@ public class Leitura_Disciplinas {
     aluno.setReprov_falta(reprov_falta);
   }
 
-  public static Vector<Disciplina> geraDisc_pares(Vector<Disciplina> disciplinas_2019) {
+  public static Vector<Disciplina> geraDisc_pares(Vector<Disciplina> disciplinas_2019, 
+      Vector<Disciplinas_Cursadas> historico)
+  {
     Vector<Disciplina> disciplinas_pares = new Vector<Disciplina>();
     int n = disciplinas_2019.size();
     for (int i = 0; i < n; i++) {
@@ -160,20 +162,34 @@ public class Leitura_Disciplinas {
         disciplinas_pares.add(candidato);
       }
     }
+    remove_cursadas(disciplinas_pares, historico);
     return disciplinas_pares;
   }
 
-  public static Vector<Disciplina> geraDisc_impares(Vector<Disciplina> disciplinas_2019) {
+  public static Vector<Disciplina> geraDisc_impares(Vector<Disciplina> disciplinas_2019,
+      Vector<Disciplinas_Cursadas> historico)
+  {
     Vector<Disciplina> disciplinas_impares = new Vector<Disciplina>();
     int n = disciplinas_2019.size();
     for (int i = 0; i < n; i++) {
       Disciplina candidato = new Disciplina();
       candidato = disciplinas_2019.get(i);
-      int periodo = Integer. parseInt(disciplinas_2019.get(i).getPERIODO_IDEAL());
+      int periodo = Integer.parseInt(disciplinas_2019.get(i).getPERIODO_IDEAL());
       if ((periodo%2 != 0) && (periodo > 3)){
         disciplinas_impares.add(candidato);
       }
     }
+    remove_cursadas(disciplinas_impares, historico);
     return disciplinas_impares;
+  }
+
+  public static void remove_cursadas(Vector<Disciplina> disciplinas, Vector<Disciplinas_Cursadas> historico){
+    for(int i = 0; i < historico.size(); i++){
+      int periodo = Integer.parseInt(historico.get(i).getSITUACAO_ITEM());
+      if(periodo >= 4)
+        for(int j = 0; j < disciplinas.size(); j++)
+          if(disciplinas.get(j).getCOD_DISCIPLINA().equals(historico.get(i).getCOD_ATIV_CURRIC()))
+            disciplinas.remove(j);
+    }
   }
 }

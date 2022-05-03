@@ -14,8 +14,8 @@ public class Arquivadora {
     this.lista_de_disciplinas2019 = Leitura_Disciplinas.leDisciplinas("TAP_Disciplinas_2019.csv");
     this.aluno = Leitura_Disciplinas.leAluno(grr+"_historico.csv");
     this.disciplinas_barreira = Leitura_Disciplinas.geraBarreira(this.lista_de_disciplinas2019);
-    this.disciplinas_pares = Leitura_Disciplinas.geraDisc_pares(this.lista_de_disciplinas2019);
-    this.disciplinas_impares = Leitura_Disciplinas.geraDisc_impares(this.lista_de_disciplinas2019);
+    this.disciplinas_pares = Leitura_Disciplinas.geraDisc_pares(this.lista_de_disciplinas2019, this.aluno.getHistorico());
+    this.disciplinas_impares = Leitura_Disciplinas.geraDisc_impares(this.lista_de_disciplinas2019, this.aluno.getHistorico());
     this.aluno.setBarreira(Leitura_Disciplinas.geraBarreira_Aluno(this.disciplinas_barreira, this.aluno.getHistorico()));
     Leitura_Disciplinas.geraDados_semestre(this.aluno);
   }
