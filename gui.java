@@ -7,6 +7,7 @@ import java.util.*;
 import java.io.*;
 import javax.swing.border.Border;
 class gui {
+    static int numero=0;
 
     
     
@@ -135,22 +136,7 @@ class gui {
                     }
                 }
             };
-            JButton requerimento= new JButton();
-            requerimento.addActionListener(new ActionListener(){
-
-                @Override
-                public void actionPerformed(ActionEvent e) {
-
-                    for (int i=0;i<tableOfertadas.getRowCount();i++){
-                        Boolean marcado=Boolean.valueOf(tableOfertadas.getValueAt(i,0).toString());
-                        String  col=tableOfertadas.getValueAt(i,1).toString();
-                        if(marcado){
-                            JOptionPane.showMessageDialog(null,col);
-                        }
-                    }
-                }
-            });
-            frame.getContentPane().add(requerimento);
+            
             TableColumnModel columnModelOfertadas = tableOfertadas.getColumnModel();
             TamanhoColunasOfertadas(columnModelOfertadas);
             TabelaOfertadas(lista, modelOfertadas,periodo);
@@ -198,9 +184,26 @@ class gui {
                         materias=4;
                 }
             JLabel avisos= new JLabel("<html>É obrigatoria a matrícula na maior quantidade possível de disciplinas dentro da barreira!<br/>Máximo de matérias com base no seu desempenho="+materias+"<html>");
-            JButton enviar=new JButton("Gerar pedido");
-            enviar.setSize(100,100);
-        panel.add(enviar,BorderLayout.EAST);
+            JButton enviar=new JButton("Gerar pedido: "+numero);
+            enviar.addActionListener(new ActionListener(){
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Vector<String> disciplinas = new Vector<String>();
+                    for (int i=0;i<tableOfertadas.getRowCount();i++){
+                        Boolean marcado=(Boolean) tableOfertadas.getValueAt(i,2);
+                        String nome= (String) tableOfertadas.getValueAt(i,0);
+                        if(marcado){
+                            disciplinas.add(nome);
+                        }
+                    }
+                    if(disciplinas.size()!=0)
+                    {
+                        lista.setDisciplinas_solicitas(disciplinas);
+                    }
+                }
+            });
+        panel.add(enviar,BorderLayout.SOUTH);
         panel.add(avisos,BorderLayout.CENTER);
         panel.add(panel2,BorderLayout.WEST);
         frame.getContentPane().add(BorderLayout.SOUTH,panel);

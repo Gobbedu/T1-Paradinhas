@@ -192,4 +192,17 @@ public class Leitura_Disciplinas {
             disciplinas.remove(j);
     }
   }
+
+  public static void GeraDisc_Solicitadas(Vector<Disciplina> solicitadas,Vector<String>nomes,Vector<Disciplina>lista){
+    for(int i=0;i<nomes.size();i++){
+      for (int j=0;j<lista.size();j++){
+        Disciplina conferir = new Disciplina();
+        conferir=lista.get(j);
+        if(nomes.get(i).equals(conferir.getNOME_DISCIPLINA())){
+          solicitadas.add(conferir);
+        }
+      }
+    }
+  }
+
 }

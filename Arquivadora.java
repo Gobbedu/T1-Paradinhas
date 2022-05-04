@@ -8,6 +8,7 @@ public class Arquivadora {
   private Vector<Disciplina> disciplinas_pares;
   private Vector<Disciplina> disciplinas_impares;
   private Vector<Disciplina> disciplinas_barreira;
+  private Vector<Disciplina> disciplinas_solicitadas;
   private Aluno aluno;
 
   private Arquivadora(String grr) {
@@ -18,6 +19,7 @@ public class Arquivadora {
     this.disciplinas_impares = Leitura_Disciplinas.geraDisc_impares(this.lista_de_disciplinas2019, this.aluno.getHistorico());
     this.aluno.setBarreira(Leitura_Disciplinas.geraBarreira_Aluno(this.disciplinas_barreira, this.aluno.getHistorico()));
     Leitura_Disciplinas.geraDados_semestre(this.aluno);
+    disciplinas_solicitadas=new Vector<Disciplina>();
   }
 
   public static Arquivadora getUnica(String grr){
@@ -47,4 +49,15 @@ public class Arquivadora {
     return this.disciplinas_impares;
   }
   
+  public Vector<Disciplina> getDisciplinas_solicitas(){
+    return this.disciplinas_solicitadas;
+  }
+
+  public void setDisciplinas_solicitas(Vector<String> nomes){
+    Leitura_Disciplinas.GeraDisc_Solicitadas(this.disciplinas_solicitadas, nomes,this.lista_de_disciplinas2019);
+    System.out.println(this.disciplinas_solicitadas.get(0));
+    System.out.println(this.disciplinas_solicitadas.get(1));
+    System.out.println(this.disciplinas_solicitadas.get(2));
+
+  }
 }
