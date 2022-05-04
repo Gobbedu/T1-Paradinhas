@@ -7,7 +7,6 @@ import java.util.*;
 import java.io.*;
 import javax.swing.border.Border;
 class gui {
-    static int numero=0;
 
     
     
@@ -109,6 +108,7 @@ class gui {
             /*TABELA DE HISTORICO END */
 
             /*TABELA DE OFERTADAS BEGIN */
+            JPanel panelOfertadas = new JPanel(new BorderLayout());
             String[] ColunasOfertadas = {"Materias Ofertadas","Periodo","Requerir"};
             DefaultTableModel modelOfertadas = new DefaultTableModel(ColunasOfertadas,0){
                 @Override
@@ -142,7 +142,10 @@ class gui {
             TabelaOfertadas(lista, modelOfertadas,periodo);
             
             JScrollPane scrollPaneOfertadas = new JScrollPane(tableOfertadas,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-            Tabelas.add(scrollPaneOfertadas,BorderLayout.EAST);
+            JButton enviar=new JButton("Gerar pedido:");
+            panelOfertadas.add(scrollPaneOfertadas,BorderLayout.CENTER);
+            panelOfertadas.add(enviar,BorderLayout.SOUTH);
+            Tabelas.add(panelOfertadas,BorderLayout.EAST);
             /*TABELA DE OFERTADAS END */
         frame.getContentPane().add(BorderLayout.CENTER,Tabelas);
         
@@ -184,7 +187,6 @@ class gui {
                         materias=4;
                 }
             JLabel avisos= new JLabel("<html>É obrigatoria a matrícula na maior quantidade possível de disciplinas dentro da barreira!<br/>Máximo de matérias com base no seu desempenho="+materias+"<html>");
-            JButton enviar=new JButton("Gerar pedido: "+numero);
             enviar.addActionListener(new ActionListener(){
 
                 @Override
@@ -203,7 +205,6 @@ class gui {
                     }
                 }
             });
-        panel.add(enviar,BorderLayout.SOUTH);
         panel.add(avisos,BorderLayout.CENTER);
         panel.add(panel2,BorderLayout.WEST);
         frame.getContentPane().add(BorderLayout.SOUTH,panel);

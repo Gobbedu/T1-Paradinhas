@@ -55,9 +55,9 @@ public class Arquivadora {
 
   public void setDisciplinas_solicitas(Vector<String> nomes){
     Leitura_Disciplinas.GeraDisc_Solicitadas(this.disciplinas_solicitadas, nomes,this.lista_de_disciplinas2019);
-    System.out.println(this.disciplinas_solicitadas.get(0));
-    System.out.println(this.disciplinas_solicitadas.get(1));
-    System.out.println(this.disciplinas_solicitadas.get(2));
+    for(int i=0;i<this.disciplinas_solicitadas.size();i++){
+      System.out.println(this.disciplinas_solicitadas.get(i));
+    }
 
   }
 }
