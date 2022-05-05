@@ -109,12 +109,13 @@ class gui {
 
             /*TABELA DE OFERTADAS BEGIN */
             JPanel panelOfertadas = new JPanel(new BorderLayout());
-            String[] ColunasOfertadas = {"Materias Ofertadas","Periodo","Requerir"};
+            String[] ColunasOfertadas = {"Materias Ofertadas","Periodo","Requerir","Prioridade(Ordem crescente)"};
             DefaultTableModel modelOfertadas = new DefaultTableModel(ColunasOfertadas,0){
                 @Override
                 public boolean isCellEditable(int row, int column) {
                     switch(column){
                         case 2:
+                        case 3:
                             return true;
                         default:
                             return false;    
@@ -145,6 +146,7 @@ class gui {
             JButton enviar=new JButton("Gerar pedido:");
             panelOfertadas.add(scrollPaneOfertadas,BorderLayout.CENTER);
             panelOfertadas.add(enviar,BorderLayout.SOUTH);
+            scrollPaneOfertadas.setPreferredSize(new Dimension(750,500));
             Tabelas.add(panelOfertadas,BorderLayout.EAST);
             /*TABELA DE OFERTADAS END */
         frame.getContentPane().add(BorderLayout.CENTER,Tabelas);
@@ -201,7 +203,7 @@ class gui {
                     }
                     if(disciplinas.size()!=0)
                     {
-                        lista.setDisciplinas_solicitas(disciplinas);
+                        lista.GeraPedido(disciplinas);
                     }
                 }
             });
@@ -213,7 +215,6 @@ class gui {
         frame.setVisible(true);
     }
 
-    /*PRONTO(ACHO KKK)*/
     public static void principal(){
 
         
