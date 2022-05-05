@@ -194,6 +194,7 @@ class gui {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     Vector<String> disciplinas = new Vector<String>();
+                    
                     for (int i=0;i<tableOfertadas.getRowCount();i++){
                         Boolean marcado=(Boolean) tableOfertadas.getValueAt(i,2);
                         String nome= (String) tableOfertadas.getValueAt(i,0);
