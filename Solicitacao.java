@@ -15,7 +15,7 @@ public class Solicitacao {
         }
       }
 
-    public static void GeraArquivo(Vector <Disciplina> solicitadas, ){
+    public static void GeraArquivo(Vector <Disciplina> solicitadas){
 
     }
 

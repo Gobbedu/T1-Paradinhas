@@ -44,7 +44,7 @@ class gui {
             for(int i=0;i<lista.getDisciplinas_pares().size();i++){
                 String materia=lista.getDisciplinas_pares().get(i).getNOME_DISCIPLINA();
                 String periodo=lista.getDisciplinas_pares().get(i).getPERIODO_IDEAL();
-                Object[] data={materia,periodo,Boolean.FALSE};
+                Object[] data={materia,periodo,Boolean.FALSE,0};
                 model.addRow(data);                    
             }
         }
@@ -52,7 +52,7 @@ class gui {
             for(int i=0;i<lista.getDisciplinas_impares().size();i++){
                 String materia=lista.getDisciplinas_impares().get(i).getNOME_DISCIPLINA();
                 String periodo=lista.getDisciplinas_impares().get(i).getPERIODO_IDEAL();
-                Object[] data={materia,periodo,Boolean.FALSE};
+                Object[] data={materia,periodo,Boolean.FALSE,0  };
                 model.addRow(data);                    
             }
         }
@@ -132,6 +132,8 @@ class gui {
                             return String.class;
                         case 2:
                             return Boolean.class;
+                        case 3:
+                            return Integer.class;
                         default:
                             return String.class;
                     }
@@ -194,17 +196,19 @@ class gui {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     Vector<String> disciplinas = new Vector<String>();
-                    
+                    Vector<Integer> prioridades = new Vector<Integer>();
                     for (int i=0;i<tableOfertadas.getRowCount();i++){
-                        Boolean marcado=(Boolean) tableOfertadas.getValueAt(i,2);
                         String nome= (String) tableOfertadas.getValueAt(i,0);
+                        Boolean marcado=(Boolean) tableOfertadas.getValueAt(i,2);
                         if(marcado){
                             disciplinas.add(nome);
+                            Integer prioridade=(Integer)tableOfertadas.getValueAt(i,3);
+                            prioridades.add(prioridade);
                         }
                     }
                     if(disciplinas.size()!=0)
                     {
-                        lista.GeraPedido(disciplinas);
+                        lista.GeraPedido(disciplinas,prioridades);
                     }
                 }
             });
