@@ -75,6 +75,12 @@ public class Leitura_Disciplinas {
       }
       id.setHistorico(lista_Disc_Cursadas);
       usuario.close();
+      int n = id.getHistorico().size();
+      String periodo_atual = id.getHistorico().get(n-1).getPERIODO();
+      if(periodo_atual.equals("1o. Semestre"))
+        id.setPeriodo_atual(1);
+      else
+        id.setPeriodo_atual(2);
       return id;
     } catch (IOException e) {
       System.out.println("Erro ao ler o arquivo");
