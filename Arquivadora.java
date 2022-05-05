@@ -54,11 +54,8 @@ public class Arquivadora {
   }
 
   public void GeraPedido(Vector<String> nomes,Vector<Integer> prioridades){
-    Solicitacao.GeraDisc_Solicitadas(this.disciplinas_solicitadas, nomes,this.lista_de_disciplinas2019,prioridades);
-    for(int i=0;i<this.disciplinas_solicitadas.size();i++){
-      System.out.println(this.disciplinas_solicitadas.get(i).getNOME_DISCIPLINA());
-      System.out.println((Integer)prioridades.get(i));
-    }
+    Solicitacao.GeraDisc_Solicitadas(this.disciplinas_solicitadas, nomes,this.lista_de_disciplinas2019);
+    Solicitacao.GeraArquivo(nomes, prioridades,this.aluno);
     this.disciplinas_solicitadas.clear();
   }
 }

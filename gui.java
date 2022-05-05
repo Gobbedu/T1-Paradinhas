@@ -40,7 +40,7 @@ class gui {
         columnModel.getColumn(2).setMaxWidth(80);
     }
     public static void TabelaOfertadas(Arquivadora lista,DefaultTableModel model,int periodo_atual){
-        if(periodo_atual==0){
+        if(periodo_atual==2){
             for(int i=0;i<lista.getDisciplinas_pares().size();i++){
                 String materia=lista.getDisciplinas_pares().get(i).getNOME_DISCIPLINA();
                 String periodo=lista.getDisciplinas_pares().get(i).getPERIODO_IDEAL();
@@ -75,7 +75,7 @@ class gui {
     }
     
 
-    public static void janela(String grr,int periodo)
+    public static void janela(String grr)
     {
         Arquivadora lista = Arquivadora.getUnica(grr);
         JFrame frame = new JFrame();
@@ -142,7 +142,7 @@ class gui {
             
             TableColumnModel columnModelOfertadas = tableOfertadas.getColumnModel();
             TamanhoColunasOfertadas(columnModelOfertadas);
-            TabelaOfertadas(lista, modelOfertadas,periodo);
+            TabelaOfertadas(lista, modelOfertadas,lista.getAluno().getPeriodo_atual());
             
             JScrollPane scrollPaneOfertadas = new JScrollPane(tableOfertadas,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
             JButton enviar=new JButton("Gerar pedido:");
@@ -256,7 +256,7 @@ class gui {
                 for (int i = 0; i < children.length; i++) {
                     if(children[i].equals(grr+"_historico.csv")) {
                         frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-                        janela(grr,0);
+                        janela(grr);
                     }
                 }
                 label.setText("GRR não encontrado");
@@ -265,6 +265,6 @@ class gui {
     }
     public static void main(String args[]) {
         //principal();         
-        janela("41561234",0);
+        janela("41561234");
     }
 }
