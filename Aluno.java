@@ -8,6 +8,8 @@ public class Aluno{
     private Vector<Disciplina> barreira;
     private double porc_aprovacao;
     private int reprov_falta;
+    private int periodo_atual;
+
     public Aluno() {
     }
 
@@ -59,6 +61,14 @@ public class Aluno{
         this.reprov_falta = reprov_falta;
     }
 
+    public int getPeriodo_atual() {
+        return this.periodo_atual;
+    }
+
+    public void setPeriodo_atual(int periodo_atual) {
+        this.periodo_atual = periodo_atual;
+    }
+
     
     public String toString() {
         return "{" +
@@ -68,6 +78,8 @@ public class Aluno{
             ", barreira='" + getBarreira() + "'" +
             ", Porc_aprovacao='" + getPorc_aprovacao() + "'" +
             ", Reprov_falta='" + getReprov_falta() + "'" +
+            ", Periodo_Atual='" + getPeriodo_atual() + "'" +
+
             "}";
     }
 
