@@ -209,9 +209,25 @@ class gui {
                     if(disciplinas.size()!=0)
                     {
                         lista.GeraPedido(disciplinas,prioridades);
+                        JFrame confirmacao= new JFrame("Confirmacao");
+                        confirmacao.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                        confirmacao.setResizable(false);
+                        confirmacao.setSize(420,300);
+                        JLabel confirmado= new JLabel("Seu pedido foi gerado e se encontra no diretório 'dados'");
+                        JButton butao=new JButton("OK");
+                        confirmacao.getContentPane().add(BorderLayout.CENTER,confirmado);
+                        confirmacao.getContentPane().add(BorderLayout.SOUTH,butao);
+                        confirmacao.setLocationRelativeTo(null);
+                        confirmacao.setVisible(true);
+                        butao.addActionListener(new ActionListener() {
+                            public void actionPerformed(ActionEvent e) {
+                                confirmacao.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                            }          
+                         });
                     }
                 }
             });
+        
         panel.add(avisos,BorderLayout.CENTER);
         panel.add(panel2,BorderLayout.WEST);
         frame.getContentPane().add(BorderLayout.SOUTH,panel);
