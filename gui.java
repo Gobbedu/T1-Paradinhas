@@ -203,6 +203,8 @@ class gui {
                         if(marcado){
                             disciplinas.add(nome);
                             Integer prioridade=(Integer)tableOfertadas.getValueAt(i,3);
+                            if(prioridade==null)
+                                prioridade=0;
                             prioridades.add(prioridade);
                         }
                     }
