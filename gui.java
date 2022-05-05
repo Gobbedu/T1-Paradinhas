@@ -280,7 +280,6 @@ class gui {
          });
     }
     public static void main(String args[]) {
-        //principal();         
-        janela("41561234");
+        principal();         
     }
 }
