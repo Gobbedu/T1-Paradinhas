@@ -1,3 +1,4 @@
+//Classe que armazena as informaçẽos de uma disciplina
 public class Disciplinas_Cursadas{
     private String  COD_CURSO;
     private String  NOME_CURSO;
@@ -14,9 +15,11 @@ public class Disciplinas_Cursadas{
     private String  FREQUENCIA;
     private String  SIGLA;  
 
+    //Construtor da classe
     public Disciplinas_Cursadas() {
     }
 
+    //Métodos get e set para acesso de atributos
     public String getCOD_CURSO() {
         return this.COD_CURSO;
     }

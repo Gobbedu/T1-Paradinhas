@@ -1,18 +1,21 @@
 import java.util.Vector;
-//import java.util.prefs.BackingStoreException;
 
+//Classe que armazena o tipo Aluno e contém todas as informações
+//do aluno coletadas no histórico
 public class Aluno{
     private String  GRR;
     private String  NOME;
     private Vector<Disciplinas_Cursadas> Historico;
-    private Vector<Disciplina> barreira;
-    private double porc_aprovacao;
-    private int reprov_falta;
-    private int periodo_atual;
+    private Vector<Disciplina> barreira;                //Armazena as disciplinas que faltam cursar na barreira
+    private double porc_aprovacao;                      //Taxa de aprovação do último semestre       
+    private int reprov_falta;   
+    private int periodo_atual;      
 
+    //Construtor
     public Aluno() {
     }
 
+    //Metodos get e set para acessar atributos privados da classe
     public String getGRR() {
         return this.GRR;
     }
@@ -69,7 +72,7 @@ public class Aluno{
         this.periodo_atual = periodo_atual;
     }
 
-    
+    //Trasforma as saídas em strings bem comportadas
     public String toString() {
         return "{" +
             " GRR='" + getGRR() + "'" +

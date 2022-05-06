@@ -1,3 +1,4 @@
+//Classe que armazena as informaçẽos de uma disciplina
 public class Disciplina{
   private String COD_CURSO;
   private String NUM_VERSAO;
@@ -11,10 +12,11 @@ public class Disciplina{
   private String CH_TOTAL;
   private String DESCR_SITUACAO;
 
-
+  //Construtor da classe
   public Disciplina() {
   }
 
+  //Métodos get e set para acessar os atributos privados da classe
   public String getCOD_CURSO() {
     return this.COD_CURSO;
   }

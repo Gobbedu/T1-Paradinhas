@@ -1,20 +1,20 @@
 import java.io.File;
 import java.util.Vector;
-
 import java.io.IOException;
 import java.util.Scanner;
 
+//Classe contendo os métodos de leitura de arquivos e geração dos valores armazenados na arquivadora
 public class Leitura_Disciplinas {
-
+  //Le as disciplinas de um arquivo csv e armazena num Vector
   public static Vector<Disciplina> leDisciplinas(String arquivo) {
-    Vector<Disciplina> lista_de_Disciplinas = new Vector<Disciplina>();
+    Vector<Disciplina> lista_de_Disciplinas = new Vector<Disciplina>(); //Cria uma lista de objetos da classe Disciplinas
     File arquivo_Disciplinas = new File("dados/" + arquivo);
     try {
       Scanner usuario = new Scanner(arquivo_Disciplinas);
       usuario.nextLine();
       usuario.nextLine();
 
-      usuario.useDelimiter(";");
+      usuario.useDelimiter(";");                      //Usa ; como limitador para se mover
 
       while (usuario.hasNext()) {
         Disciplina materia = new Disciplina();
@@ -30,7 +30,7 @@ public class Leitura_Disciplinas {
         materia.setCH_TOTAL(usuario.next());
         materia.setDESCR_SITUACAO(usuario.next());
         usuario.nextLine();
-        lista_de_Disciplinas.add(materia);
+        lista_de_Disciplinas.add(materia);            //Adiciona a matéria no Vector de disciplinas.
       }
       usuario.close();
       return lista_de_Disciplinas;
@@ -41,20 +41,21 @@ public class Leitura_Disciplinas {
     }
   }
 
+  //Método respons[avel por ler o arquivo de histórico, gerar um aluno com os atributos preenchidos e retorna-lo
   public static Aluno leAluno(String arquivo) {
     Aluno id = new Aluno();
-    Vector<Disciplinas_Cursadas> lista_Disc_Cursadas = new Vector<Disciplinas_Cursadas>();
+    Vector<Disciplinas_Cursadas> lista_Disc_Cursadas = new Vector<Disciplinas_Cursadas>();  //Lista de disciplinas cursadas
     File arquivo_Historico = new File("dados/" + arquivo);
 
     try {
       Scanner usuario = new Scanner(arquivo_Historico);
       usuario.nextLine();
       usuario.nextLine();
-      usuario.useDelimiter(";");
+      usuario.useDelimiter(";");                                   //Usa ; como limitador para se mover
 
       while (usuario.hasNext()) {
-        id.setGRR(usuario.next());
-        id.setNOME(usuario.next());
+        id.setGRR(usuario.next());                                 //Le o nome do Aluno e armazena
+        id.setNOME(usuario.next());                                //Le o GRR do aluno e armazena
         Disciplinas_Cursadas materia = new Disciplinas_Cursadas();
         materia.setCOD_CURSO(usuario.next());
         materia.setNOME_CURSO(usuario.next());
@@ -70,12 +71,13 @@ public class Leitura_Disciplinas {
         materia.setDESCR_ESTRUTURA(usuario.next());
         materia.setFREQUENCIA(usuario.next());
         materia.setSIGLA(usuario.next());
-        lista_Disc_Cursadas.add(materia);
+        lista_Disc_Cursadas.add(materia);                         //Adiciona a matéria na lista de objetos da classe Disciplinas_Cursadas
         usuario.nextLine();
       }
       id.setHistorico(lista_Disc_Cursadas);
       usuario.close();
       int n = id.getHistorico().size();
+      //Seta o período atual e o armazena em Aluno
       String periodo_atual = id.getHistorico().get(n-1).getPERIODO();
       if(periodo_atual.equals("1o. Semestre"))
         id.setPeriodo_atual(1);
@@ -89,12 +91,14 @@ public class Leitura_Disciplinas {
     }
   }
 
+  //Método responsável por criar a lista de disciplinas da barreira, retorna uma lista para Arquivadora
   public static Vector<Disciplina> geraBarreira(Vector<Disciplina> Disciplinas_2019) {
     Vector<Disciplina> disciplinas_barreira = new Vector<Disciplina>();
     int n = Disciplinas_2019.size();
     for (int i = 0; i < n; i++) {
       Disciplina candidato = new Disciplina();
       candidato = Disciplinas_2019.get(i);
+      //Compara para ver se a diciplina da iteração pertence a um dos 3 primeiros períodos
       if ((candidato.getPERIODO_IDEAL().equals("1")) || (candidato.getPERIODO_IDEAL().equals("2"))
           || (candidato.getPERIODO_IDEAL().equals("3"))) {
         disciplinas_barreira.add(candidato);
@@ -124,6 +128,7 @@ public class Leitura_Disciplinas {
     return barreira_aluno;
   }
 
+  //Metodo responsável por gerar e armazenar os dados do último semestre em Aluno
   public static void geraDados_semestre(Aluno aluno) {
     int n = aluno.getHistorico().size();
     int ano;
@@ -133,6 +138,7 @@ public class Leitura_Disciplinas {
     int total = 0;
     int reprov_falta = 0;
 
+    //Seta qual foi o ultimo período cursado, se baseia no período de matrícula atual
     ano = Integer.parseInt(aluno.getHistorico().get(n - 1).getANO());
     if (aluno.getHistorico().get(n - 1).getPERIODO().equals("1o. Semestre")) {
       semestre_anterior = "2o. Semestre";
@@ -140,6 +146,7 @@ public class Leitura_Disciplinas {
     } else
       semestre_anterior = "1o. Semestre";
 
+    //Conta as disciplinas cursadas no semestre anterior, vendo qual foi aprovada e quais não
     for (int i = 0; i < n; i++) {
       ano_i = Integer.parseInt(aluno.getHistorico().get(i).getANO());
       if ((ano_i == ano) && (aluno.getHistorico().get(i).getPERIODO().equals(semestre_anterior))) {
@@ -155,6 +162,7 @@ public class Leitura_Disciplinas {
     aluno.setReprov_falta(reprov_falta);
   }
 
+  //Método responsável por gerar uma lista de disciplinas pares pós-barreira para matrícula
   public static Vector<Disciplina> geraDisc_pares(Vector<Disciplina> disciplinas_2019, 
       Vector<Disciplinas_Cursadas> historico)
   {
@@ -172,6 +180,7 @@ public class Leitura_Disciplinas {
     return disciplinas_pares;
   }
 
+  //Método responsável por gerar uma lista de disciplinas pares pós-barreira para matrícula
   public static Vector<Disciplina> geraDisc_impares(Vector<Disciplina> disciplinas_2019,
       Vector<Disciplinas_Cursadas> historico)
   {
@@ -189,6 +198,8 @@ public class Leitura_Disciplinas {
     return disciplinas_impares;
   }
 
+  //Método auxiliar a geraDisc_impares e geraDisc_pares, esse método remove da lista as matérias que já foram cursadas
+  //para que assim não exista a possibilidade de se matricular nela denovo
   public static void remove_cursadas(Vector<Disciplina> disciplinas, Vector<Disciplinas_Cursadas> historico){
     for(int i = 0; i < historico.size(); i++){
       int periodo = Integer.parseInt(historico.get(i).getSITUACAO_ITEM());
